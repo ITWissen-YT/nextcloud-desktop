@@ -1,5 +1,9 @@
 FROM lscr.io/linuxserver/webtop:debian-xfce
 
+LABEL org.opencontainers.image.source="https://github.com/ITWissen-YT/nextcloud-desktop"
+LABEL org.opencontainers.image.description="Web-based desktop container with Nextcloud Desktop Client"
+LABEL org.opencontainers.image.title="Nextcloud Desktop Web Container"
+
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
        nextcloud-desktop \
