@@ -163,3 +163,19 @@ or automatically through Watchtower.
 ## Important update behavior
 
 Do not delete the mounted `Config` and `Data` directories. Replacing the container or updating the image is safe as long as these mounts stay in place.
+
+
+## Third-party software and trademarks
+
+This project packages third-party open-source software, including:
+
+- LinuxServer.io Webtop
+- Nextcloud Desktop Client
+- Debian packages
+
+The Nextcloud Desktop Client is distributed under GPL-2.0-or-later.
+
+This is an unofficial community project.
+It is not affiliated with or endorsed by Nextcloud GmbH or LinuxServer.io.
+
+All product names, trademarks and registered trademarks belong to their respective owners.
