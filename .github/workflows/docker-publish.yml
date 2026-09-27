@@ -2,8 +2,14 @@ name: Build and publish Docker image
 
 on:
   push:
-    branches: ["main"]
-    tags: ["v*"]
+    branches:
+      - main
+
+  schedule:
+    # Jeden Sonntag um 03:00 UTC
+    - cron: "0 3 * * 0"
+
+  # Zusätzlich manuell unter GitHub -> Actions startbar
   workflow_dispatch:
 
 permissions:
@@ -13,6 +19,7 @@ permissions:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -30,7 +37,7 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository_owner }}/nextcloud-desktop
           tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest
             type=ref,event=tag
 
       - name: Set up Docker Buildx
@@ -41,5 +48,12 @@ jobs:
         with:
           context: .
           push: true
+
+          # Aktuelle Basis herunterladen
+          pull: true
+
+          # apt update / Paketinstallation wirklich neu ausführen
+          no-cache: true
+
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
