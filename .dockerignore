@@ -1,0 +1,6 @@
+.git
+.github
+Config
+Data
+*.zip
+*.tar

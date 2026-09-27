@@ -1,0 +1,17 @@
+services:
+  nextcloud-desktop:
+    image: ghcr.io/GITHUB_USER/nextcloud-desktop:latest
+    container_name: nextcloud-desktop
+    restart: unless-stopped
+    ports:
+      - "3100:3001"
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+    volumes:
+      - ./Config:/config
+      - ./Data:/client-data
+    shm_size: "1gb"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
