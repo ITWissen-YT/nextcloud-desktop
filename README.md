@@ -55,7 +55,7 @@ or another subdirectory below `/client-data`.
 Example:
 
 ```text
-/client-data/Oma-Nextcloud
+/client-data/test-Nextcloud
 ```
 
 Do **not** select a directory under the container's temporary filesystem if you want the files to survive container recreation.
